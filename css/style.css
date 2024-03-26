@@ -12,10 +12,11 @@
    ========================================================================== */
 
 :root{
-  --principal---h1: 64px;
-  --principal---h2: 36px;
+  --principal---h1: 48px;
+  --principal---h2: 26px;
   --principal---top-bar: 36px;
-  --principal---p: 24px;
+  --principal---p: 18px;
+  --all--left-margin: 3em;
 }
 
 html {
