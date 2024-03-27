@@ -1,32 +1,35 @@
-/*! HTML5 Boilerplate v9.0.0-RC1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
 :root{
   --principal---h1: 48px;
   --principal---h2: 26px;
   --principal---top-bar: 36px;
   --principal---p: 18px;
-  --all--left-margin: 3em;
+
+  --all--left-margin: 2em;
 }
 
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/*e*/
+
 html {
-  color: #222;
   font-size: 1em;
   line-height: 1.4;
   background-color: #191319;
 }
 
 .manrope-H1 {
+  opacity: 0;
+  animation: 1s ease-out 0s 1 fadeIn forwards;
+
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;
@@ -38,6 +41,9 @@ html {
 }
 
 .work-sans-H2 {
+  opacity: 0;
+  animation: 1s ease-out 1s 1 fadeIn forwards;
+
   font-family: "Work Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 100;
@@ -49,6 +55,9 @@ html {
 }
 
 .manrope-P {
+  opacity: 0;
+  animation: 1s ease-out 2s 1 fadeIn forwards;
+
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
@@ -61,78 +70,75 @@ html {
   gap: 100px;
 }
 
-.linkedin-svg{
+/* Social Icons */
+
+.socials {
+  opacity: 0;
+  animation: 1s ease-out 2s 1 fadeIn forwards;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  row-gap: 2em;
+  column-gap: 5em;
+
+  margin-left: var(--all--left-margin);
+  margin-top: -1.5em;
+  margin-bottom: 1.5em;
+}
+
+.social-icon{
   width: 64px;
   height: 64px;
+}
 
+.social-icon > div{
+  background: rgba(255, 255, 255, 0);
+  transition: transform 0.2s cubic-bezier(.27,.72,.37,.81), background 0.2s linear;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.social-icon > button{
+  transition: transform 0.2s cubic-bezier(.27,.72,.37,.81);
+}
+
+.social-icon:hover > *{
+  cursor:pointer;
+  transform: translate(15px, -15px) rotate(10deg);
+}
+
+.social-icon:hover > div{
+  background: white;
+}
+
+.icon-svg{
+  width: inherit;
+  height: inherit;
+  position: absolute;
+}
+
+.linkedin-ico{
   background: radial-gradient(75% 75% at 50% 50%, #FFFFFFFF 0%, #FFFFFFFF 30%, #3278FF 50%);
   -webkit-mask: url(/svg/linkedin.svg) no-repeat center;
-  mask: url(/svg/linkedin.svg) no-repeat center;
-
-  transition: transform 250ms ;
-  &:hover{
-    cursor:pointer;
-    transform: translate(10px, -10px);
-  }
 }
 
-.github-svg{
-  width: 64px;
-  height: 64px;
-
+.github-ico{
   background: linear-gradient(0deg, #FFFFFFFF 0%, #FFFFFFFF 36%, #333333 67%, #333333 100%);
   -webkit-mask: url(/svg/octocat.svg) no-repeat center;
-  mask: url(/svg/octocat.svg) no-repeat center;
-
-  transition: transform 250ms ;
-  &:hover{
-    cursor:pointer;
-    transform: translate(10px, -10px);
-  }
 }
 
-
-.instagram-svg{
-  width: 64px;
-  height: 64px;
-
+.instagram-ico{
   background: conic-gradient(from 180deg at 50% 50%, #ff3d00 1%, #ffa800 10%, #ff3d00 29%, #2e0cff 61%, #ff3d00 92%);
   -webkit-mask: url(/svg/instagram.svg) no-repeat center;
-  mask: url(/svg/instagram.svg) no-repeat center;
-
-  transition: transform 250ms ;
-  &:hover{
-    cursor:pointer;
-    transform: translate(10px, -10px);
-  }
 }
 
-.yt-svg{
-  width: 64px;
-  height: 64px;
-
+.yt-ico{
   background: radial-gradient(75% 75% at 50% 50%, #FFFFFFFF 24%, #FF0000FF 40%);
   -webkit-mask: url(/svg/yt.svg) no-repeat center;
-  mask: url(/svg/yt.svg) no-repeat center;
-
-  transition: transform 250ms ;
-  &:hover{
-    cursor:pointer;
-    transform: translate(10px, -10px);
-  }
 }
 
-.resume-svg{
-  width: 64px;
-  height: 64px;
-
+.resume-ico{
   background: conic-gradient(from 0deg at 50% 50%, #FFFFFFFF 0%, #C98D6C 14%, #2474BE 74%, #FFFFFFFF 84%);;
   -webkit-mask: url(/svg/resume.svg) no-repeat center;
-  mask: url(/svg/resume.svg) no-repeat center;
-
-  transition: transform 250ms ;
-  &:hover{
-    cursor:pointer;
-    transform: translate(10px, -10px);
-  }
 }
