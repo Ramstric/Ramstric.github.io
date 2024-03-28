@@ -1,6 +1,6 @@
 :root{
-  --principal---h1: 48px;
-  --principal---h2: 26px;
+  --principal---h1: 5vh;
+  --principal---h2: 2vw;
   --principal---top-bar: 36px;
   --principal---p: 18px;
 
@@ -21,19 +21,49 @@
 /*e*/
 
 html {
-  font-size: 1em;
   line-height: 1.4;
-  background-color: #191319;
+  background-color: rgb(14, 11, 14);
+  font-optical-sizing: auto;
 }
 
-.manrope-H1 {
-  opacity: 0;
-  animation: 1s ease-out 0s 1 fadeIn forwards;
+.main-container{
+  width: 95vw;
+  height: 95vh;
 
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
+  position: fixed;
+  top: 3%;
+  left: 2.5%;
+
+  padding-left: 15px;
+  padding-top: 20px;
+
+  border: white 1px solid;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 50px;
+}
+
+.header-text{
   font-style: normal;
+
+  width: 88vw;
+  max-width: 50rem;
+
+  font-size: clamp(0.8rem, 2.5vmin, 3vmin);
+}
+
+.header-text > *{
+  margin: 0;
+}
+
+
+.manrope-H1 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 200;
 
   background: -webkit-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(100,100,100,1) 100%);
   -webkit-background-clip: text;
@@ -41,13 +71,10 @@ html {
 }
 
 .work-sans-H2 {
-  opacity: 0;
-  animation: 1s ease-out 1s 1 fadeIn forwards;
-
   font-family: "Work Sans", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 100;
-  font-style: normal;
+
+  font-size: 1.2em;
 
   background: -webkit-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(100,100,100,1) 100%);
   -webkit-background-clip: text;
@@ -55,41 +82,39 @@ html {
 }
 
 .manrope-P {
-  opacity: 0;
-  animation: 1s ease-out 2s 1 fadeIn forwards;
+  width: 88vw;
+  max-width: 40rem;
 
   font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  color: white;
-}
+  font-size: clamp(0.8rem, 1.8vmin, 2vmin);
 
-.flex-container {
-  display: flex;
-  gap: 100px;
+  color: white;
 }
 
 /* Social Icons */
 
-.socials {
+.socials-container {
+  /*
   opacity: 0;
-  animation: 1s ease-out 2s 1 fadeIn forwards;
+  animation: 1s ease-out 2s 1 fadeIn forwards;*/
 
   display: flex;
   flex-wrap: wrap;
 
-  row-gap: 2em;
-  column-gap: 5em;
+  row-gap: 1em;
+  column-gap: 6vw;
 
-  margin-left: var(--all--left-margin);
+  width: 70vw;
+  max-width: 20cm;
   margin-top: -1.5em;
   margin-bottom: 1.5em;
 }
 
 .social-icon{
-  width: 64px;
-  height: 64px;
+  width: clamp(30px, 5vw, 56px);
+  height: clamp(30px, 5vw, 56px);
 }
 
 .social-icon > div{
@@ -105,7 +130,7 @@ html {
 
 .social-icon:hover > *{
   cursor:pointer;
-  transform: translate(15px, -15px) rotate(10deg);
+  transform: translate(10px, -10px) rotate(20deg);
 }
 
 .social-icon:hover > div{
