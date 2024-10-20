@@ -1,18 +1,38 @@
 ---
 import '../styles/global.css'
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Socials from '../components/Socials.astro';
+import WorkActive from '../components/WorkActive.astro';
 ---
+
+
 
 <BaseLayout pageTitle="resume">
 		<div class="hero">
-			<h1>resume</h1>
-			<p>
-				WIP
-			</p>
+			<h1 style="margin: 0 0 1.25em 0">Experience</h1>
+			
+			<WorkActive position="Research assistant" 
+			enterprise="Centro de Investigación en Computación" 
+			location="Mexico" 
+			date_start="November 2024" date_end="Present" />
+
+
+
+			<ul>
+				<li>Programming of a custom numerical solution for the math model using NumPy and CuPy, which handles over thousands of data points in milliseconds of runtime</li>
+				<li>Interpretation of plots and the numerical results of the model using matplotlib and Plotly</li>
+				<li>Tested in precise heat transfer simulations with matrixes of over hundreds of thousands of data points, reporting fast runtimes of less than 10 ms by utilizing GPU-accelerated computing</li>
+				<li>End goal of simulating a chemotaxis model described by 23 partial differential equations</li>
+				<li>Use of repositories on GitHub and Git version control system, including a fully detailed documentation of usage</li>
+			</ul>
+
 		</div>
 
+		<Socials size="25" styleGap="small" /> 
 
 </BaseLayout>
+
+
 
 <style>
 	.hero {
@@ -22,5 +42,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 	.hero h1 {margin: 1% 0;}
 	.hero h2 {margin: 0 auto 20px;}
+	
+	ul {
+		padding-left: 20px;
+	}
+
+	li {
+  		margin: 20px 0;
+	}
 
 </style>

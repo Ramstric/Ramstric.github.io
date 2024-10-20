@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import WorkExperience from '../components/Work.astro';
 import Education from '../components/Education.astro';
 import Project from '../components/Project.astro';
+import Socials from '../components/Socials.astro';
 ---
 
 <BaseLayout pageTitle="home">
@@ -61,6 +62,17 @@ import Project from '../components/Project.astro';
 			<Project name="Detrended Fluctuation Analysis Tool" 
 			description="Small program tool that finds fluctuations within a large time series data, useful for research!"
 			/>
+		</div>
+
+		<div class="contact section">
+			
+			<h1>contact me!</h1>
+				
+			<p>
+				If you want to get in touch or maybe collab in a project, feel free to reach out on my social media or even send an email.
+			</p>
+
+			<Socials size="40" styleGap="big" mail/>
 		</div>
 
 </BaseLayout>
