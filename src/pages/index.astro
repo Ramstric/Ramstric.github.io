@@ -1,0 +1,135 @@
+---
+import '../styles/global.css'
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkExperience from '../components/Work.astro';
+import Education from '../components/Education.astro';
+import Project from '../components/Project.astro';
+---
+
+<BaseLayout pageTitle="home">
+		<div class="hero">
+			<h1>Ramón E. Hernández H.</h1>
+			<h2 style="color: var(--secondary-color);">Engr. in Communications and Electronics</h2>
+
+			<p>
+				Konichiwa, I'm Ramón, an engineering student from Mexico. I'm passionate about technology, programming, and electronics with high proficiency in software development.
+				<br/><br/>
+				I'm currently studying a degree in Communications and Electronics Engineering at the IPN and I'm working on a research about simulating the human body response to the HIV through partial differential equation modelling of the chemotaxis process.
+			</p>
+		</div>
+
+		<div class="resume section">
+			<div class="section-header">
+				<h1>resume</h1>
+				<a href="/resume/" >
+					<span style="color: var(--blue)"> see full resume </span>
+				</a>
+			</div>
+		
+			<h2 style="margin: 1.5em 0  0 10px">Experience</h2>
+			<WorkExperience position="Research assistant" 
+			enterprise="Centro de Investigación en Computación" 
+			location="Mexico" 
+			date_start="November 2024" date_end="Present" />
+			
+			<h2 style="margin: 1.75em 0  0 10px">Education</h2>
+			<Education college="Instituto Politécnico Nacional" 
+			degree="Bachelor in Engr. in Communications and Electronics" 
+			location="Mexico" gpa=3.9 />
+
+			<Education college="Universidad Politécnica de Madrid" 
+			degree="Bachelor in Computer Engineering" 
+			location="Spain" gpa=- />
+		</div>
+
+		<div class="projects section">
+			<div class="section-header">
+				<h1>projects</h1>
+				<a href="/projects/" >
+					<span style="color: var(--blue)"> see all projects </span>
+				</a>
+			</div>
+		
+			<Project name="Partial Differential Equation solver in Python" 
+			description="Using NumPy & CuPy, accurately approximate solutions for PDEs and design interesting models for simulations!"
+			/>
+
+			<Project name="LoRaNet - Long Range Network Device" 
+			description="DIY prototype for a LoRa device using an RP2040 micro controller which hosts a server, allows headless SSH admin usage and much more!"
+			/>
+
+			<Project name="Detrended Fluctuation Analysis Tool" 
+			description="Small program tool that finds fluctuations within a large time series data, useful for research!"
+			/>
+		</div>
+
+</BaseLayout>
+
+<style>
+	.hero {
+		text-align: left;
+		width: 90%;
+		max-width: 725px;
+	}
+	.hero h1 {margin: 1% 0;}
+	.hero h2 {margin: 0 auto 20px;}
+
+	.section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 725px;
+	}
+
+	.section-header > *{
+		margin: 0;
+	}
+
+	.section {
+		margin-top: 4rem;
+		width: 90%;
+		max-width: 725px;
+	}
+
+	a{
+		text-decoration: none;
+		font-size: var(--h3);
+	}
+
+	span{
+		position: relative;
+	}
+
+	span:after {
+		position: absolute;
+		background: #72bbff36;
+		content: "";
+		bottom: 0;
+
+		
+		transition: 
+			height .2s cubic-bezier(.175,.885,.32,1.275) .1s,
+			width .1s ease;
+		
+		height: 100%;
+		width: 1%;
+		left: -10px;
+	}
+
+	
+	a:hover span:after{
+		transition:
+			height .1s ease, 
+			width .2s cubic-bezier(.175,.885,.32,1.275) .1s,
+
+			left .2s cubic-bezier(.175,.885,.32,1.275) .1s,
+			background-color .2s ease .1s;
+
+		height: 1%;
+		width: 100%;
+		left: 0;
+		background: var(--blue);
+
+	}
+	
+</style>

@@ -1,0 +1,62 @@
+---
+const { college, degree, location, gpa } = Astro.props;
+
+---
+
+<div class="container-edu">
+    <div class="left-column">
+        <h3>{college}</h3>
+        <h3 style="color: var(--yellow)">{degree}</h3>
+    </div>
+
+    <div class="right-column">
+        <h3 style="color: var(--secondary-color)">{location}</h3>
+        <h3 style="color: var(--secondary-color)">GPA: {gpa}</h3>
+    </div>
+</div>
+
+<style>
+    .container-edu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        
+        margin-left: 35px;
+        margin-top: 1rem;
+        max-width: 700px;
+    }
+
+    .left-column {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .right-column {
+        display: flex;
+        justify-content: space-between;
+        height: fit-content;
+        flex-direction: row;
+    }
+
+    .left-column > * {
+        margin: 0;
+    }
+
+    .right-column > * {
+        margin: 0;
+    }
+
+    @media screen and (min-width: 636px) {
+        .container-edu {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .right-column {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+    }
+</style>

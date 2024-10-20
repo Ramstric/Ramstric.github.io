@@ -1,0 +1,25 @@
+---
+const { name, description } = Astro.props;
+
+---
+
+<div class="container-project">
+    <h3>{name}</h3>
+    <p style="color: var(--secondary-color)">{description}</h3>
+</div>
+
+<style>
+    .container-project {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        margin-left: 10px;
+        margin-top: 2rem;
+        max-width: 700px;
+    }
+
+    .container-project > * {
+        margin: 0;
+    }
+</style>
