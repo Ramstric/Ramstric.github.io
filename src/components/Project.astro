@@ -6,7 +6,7 @@ import Socials from "./Socials.astro";
 
 <div class="container-project">
     <h3>{name}</h3>
-    <p style="color: var(--secondary-color)">{description}</h3>
+    <p style="color: var(--secondary-color)">{description}</p>
 </div>
 
 <style>
@@ -18,6 +18,16 @@ import Socials from "./Socials.astro";
         margin-left: 10px;
         margin-top: 2rem;
         max-width: 700px;
+
+        background: linear-gradient(170deg, var(--background), var(--background), var(--background), #070707);
+        border-radius: 10px;
+        padding: 10px;
+
+        transition: filter 0.2s;
+    }
+
+    .container-project:hover {
+        filter: drop-shadow(0px 0px 10px #ffffff1d);
     }
 
     .container-project > * {
