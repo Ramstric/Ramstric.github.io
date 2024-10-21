@@ -1,0 +1,78 @@
+---
+const { name, description } = Astro.props;
+
+import Socials from "./Socials.astro";
+---
+
+<div class="container-project">
+    <div class="text">
+        <h3>{name}</h3>
+        <p style="color: var(--secondary-color)">{description}</p>
+    </div>
+    <svg width="75" height="75"> <use href="#arrow" /> </svg>
+</div>
+
+<style>
+    .container-project {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        margin-left: 10px;
+        margin-top: 2rem;
+        max-width: 700px;
+
+        background: linear-gradient(-40deg, var(--background), var(--background), var(--background), #070707);
+        border-radius: 10px;
+        padding: 10px;
+
+        position: relative;
+        transition: all 0.2s ease;
+        overflow: hidden;
+    }
+
+    .container-project > * {
+        margin: 0;
+    }
+    .text {
+  width: 100%;
+  transition: all 0.25s ease;
+}
+
+.container-project svg {
+  fill: white;
+  position: absolute;
+  top: 20px;
+  left: 0;
+
+  height: 70%;
+  width: 100%;
+
+  transform: translateX(100%);
+  
+  opacity: 0;
+  transition: transform 0.5s ease-in, opacity 0.4s cubic-bezier(0,.97,.79,.82);
+}
+
+.container-project svg > use {
+  transform: translateX(-40%);
+}
+
+.container-project:hover svg {
+  transform: translateX(70%);
+  opacity: 1;
+  
+  transition: transform 0.2s ease-in, opacity 0.6s ease-in;
+}
+
+.container-project:hover .text {
+  width: 70%;
+}
+
+</style>
+
+<svg width="0" height="0" style="display:block;">
+    <symbol id="arrow" viewBox="0 0 24 24" >
+      <path xmlns='http://www.w3.org/2000/svg' d='m11.733,23.888l-.707-.707,10.827-10.827c.094-.095.146-.22.146-.354s-.052-.259-.146-.354L11.026.819l.707-.707,10.827,10.827c.283.283.439.66.439,1.061s-.156.777-.439,1.061l-10.827,10.827Zm2.037-11.417c.126-.126.195-.293.195-.471s-.069-.345-.195-.471L2.354.112l-.707.707,11.181,11.181L1.646,23.181l.707.707,11.417-11.417Z'/>
+    </symbol>
+  </svg>
