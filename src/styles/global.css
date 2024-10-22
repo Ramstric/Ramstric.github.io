@@ -4,7 +4,7 @@
   --h2: clamp(1.2rem, 3vw, 1.25rem);
   --h3: clamp(1rem, 2vw, 1.125rem);
 
-  --p: clamp(0.8rem, 1.7vw, 1rem);
+  --p: clamp(0.8rem, 1.6vw, 1rem);
   --p-spacing: 0.95px;
   --p-line-h: 175%;
 
@@ -21,9 +21,9 @@
   --blue: #598ADE;
   --green: #00FF00;
   --yellow: #F5B255;
-  --purple: #A259FF;
+  --purple: #9361E3;
   --orange: #FFA259;
-  --pink: #FFA2A2;
+  --pink: #C65B91;
 }
 
 
@@ -64,7 +64,7 @@ p{
   font-size: var(--p);
   line-height: var(--p-line-h);
   letter-spacing: var(--p-spacing);
-  font-weight: 400;
+  font-weight: 300;
 }
 
 li {
