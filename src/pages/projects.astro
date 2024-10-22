@@ -3,10 +3,6 @@ import '../styles/global.css'
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Socials from '../components/Socials.astro';
 import ProjectEntry from '../components/ProjectEntry.astro';
-import { Image } from 'astro:assets';
-import LoRa_1 from './public/images/LoRa_1.jpg';
-import LoRa_2 from './public/images/LoRa_2.png';
-import DFA_1 from './public/images/DFA_1.png';
 ---
 
 <BaseLayout pageTitle="projects">
@@ -38,7 +34,7 @@ import DFA_1 from './public/images/DFA_1.png';
 						A small and portable device that functions as a radio server, useful for field applications such as distant sensors data logging!
 					</p>
 
-					<Image slot="project-entry-images" src={LoRa_1} alt="LoRa device"/>
+					<img slot="project-entry-images" src="/images/LoRa_1.jpg" alt="LoRa device"/>
 
 				<ProjectEntry/>
 			</div>
@@ -53,7 +49,7 @@ import DFA_1 from './public/images/DFA_1.png';
 						A small and portable device that functions as a radio server, useful for field applications such as distant sensors data logging!
 					</p>
 
-					<Image slot="project-entry-images" src={DFA_1} alt="DFA tool"/>
+					<img slot="project-entry-images" src="/images/DFA_1.png" alt="DFA tool"/>
 				<ProjectEntry/>
 			</div>
 
