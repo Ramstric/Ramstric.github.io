@@ -14,9 +14,9 @@ import Socials from '../components/Socials.astro';
 		<div class="hero">
 			<h1>Ramón E. Hernández H.</h1>
 			<h2 style="color: var(--secondary-color);">Engr. in Communications and Electronics</h2>
-
 			<p>
-				Konichiwa, I'm Ramón, an engineering student from Mexico. I'm passionate about technology, programming, and electronics with high proficiency in software development.
+				<span id="greeting" transition:persist></span> <br/>
+				I'm Ramón, an engineering student from Mexico. I'm passionate about technology, programming, and electronics with high proficiency in software development.
 				<br/><br/>
 				I'm currently studying a degree in Communications and Electronics Engineering at the IPN and I'm working on a research about simulating the human body response to the HIV through partial differential equation modelling of the chemotaxis process.
 			</p>
@@ -26,7 +26,7 @@ import Socials from '../components/Socials.astro';
 			<div class="section-header">
 				<h1>resume</h1>
 				<a href="/resume/" >
-					<span style="color: var(--blue)"> see full resume </span>
+					<span class="link-span" style="color: var(--blue)"> see full resume </span>
 				</a>
 			</div>
 		
@@ -50,7 +50,7 @@ import Socials from '../components/Socials.astro';
 			<div class="section-header">
 				<h1>pinned projects</h1>
 				<a href="/projects/" >
-					<span style="color: var(--blue)"> see all projects </span>
+					<span class="link-span" style="color: var(--blue)"> see all projects </span>
 				</a>
 			</div>
 		
@@ -88,8 +88,16 @@ import Socials from '../components/Socials.astro';
 		width: 90%;
 		max-width: 725px;
 	}
-	.hero h1 {margin: 1% 0;}
+	.hero h1 {margin: 0 0;}
 	.hero h2 {margin: 0 auto 20px;}
+
+	#greeting {
+		font-size: var(--h3);
+		font-weight: 500;
+		color: #FF7C65;
+		font-style: italic;
+		margin: 0;
+	}
 
 	.section-header {
 		display: flex;
@@ -98,31 +106,24 @@ import Socials from '../components/Socials.astro';
 		max-width: 725px;
 	}
 
-	.section-header > *{
-		margin: 0;
-	}
+	.section-header > *{margin: 0;}
 
 	.section {
-		margin-top: 4rem;
+		margin-top: 5rem;
 		width: 90%;
 		max-width: 725px;
 	}
 
-	a{
-		font-size: var(--h3);
-	}
+	a{font-size: var(--h3);}
 
-	span{
-		position: relative;
-	}
+	.link-span{position: relative;}
 
-	span:after {
+	.link-span:after {
 		position: absolute;
 		background: #72bbff36;
 		content: "";
 		bottom: 0;
 
-		
 		transition: 
 			height .2s cubic-bezier(.175,.885,.32,1.275) .1s,
 			width .1s ease;
@@ -132,8 +133,7 @@ import Socials from '../components/Socials.astro';
 		left: -10px;
 	}
 
-	
-	a:hover span:after{
+	a:hover .link-span:after{
 		transition:
 			height .1s ease, 
 			width .2s cubic-bezier(.175,.885,.32,1.275) .1s,
@@ -145,7 +145,35 @@ import Socials from '../components/Socials.astro';
 		width: 100%;
 		left: 0;
 		background: var(--blue);
-
 	}
-	
 </style>
+
+<script>
+	const helloList = [ 'Welcome!', 'Vitejte!', 'Velkomst!', 'Welkom!', 'Bienvenue!', 
+	'Willkommen!', 'Benvenuto!', '!Bienvenido!', 'Valkommen!', 'Witaj!', 'ようこそ!'];
+
+	const random = Math.floor(Math.random() * helloList.length);
+
+	var i = 0;
+	var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+	function typeWriter() {
+		if (i < helloList[random].length) {
+			document.getElementById("greeting").innerHTML += helloList[random].charAt(i);
+			i++;
+			setTimeout(typeWriter, speed);
+		}
+	}
+
+    document.addEventListener('astro:page-load', () => {
+        typeWriter();
+    });
+
+	document.addEventListener("astro:after-swap", 
+		() => {
+			document.getElementById("greeting").innerHTML = helloList[random];
+		}
+	)
+
+
+</script>
