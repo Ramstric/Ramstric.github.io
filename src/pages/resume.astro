@@ -1,19 +1,17 @@
 ---
-import '../styles/global.css'
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Socials from '../components/Socials.astro';
-import ResumeSection from '../components/ResumeSection.astro';
-
 import { Image } from 'astro:assets';
-
 import IPNimg from '/public/svg/IPN.svg';
-
 import UPMimg from '/public/svg/UPM.svg';
 
+import '../styles/global.css'
 
+import StandardLayout from '../layouts/StandardLayout.astro';
+
+import Socials from '../components/Socials.astro';
+import ResumeSection from '../components/ResumeSection.astro';
 ---
 
-<BaseLayout pageTitle="resume">
+<StandardLayout pageTitle="resume">
 		<div class="section work">
 			<h1 style="margin: 0 0 1.25em 0">Experience</h1>
 
@@ -83,9 +81,9 @@ import UPMimg from '/public/svg/UPM.svg';
 
 		<Socials size="25" styleGap="small" />
 
-</BaseLayout>
+</StandardLayout>
 
-
+<!-- ------ Local style ------ -->
 
 <style>
 	.section {

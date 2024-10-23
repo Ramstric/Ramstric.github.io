@@ -1,16 +1,18 @@
 ---
 import '../styles/global.css'
-import BaseLayout from '../layouts/BaseLayout.astro';
+
+import StandardLayout from '../layouts/StandardLayout.astro';
+
 import Socials from '../components/Socials.astro';
 import ProjectEntry from '../components/ProjectEntry.astro';
 ---
 
-<BaseLayout pageTitle="projects">
+<StandardLayout pageTitle="projects">
 		<div class="hero">
 			<h1>projects</h1>
 			
-			<div class="project-div">
-				<ProjectEntry>
+			<div class="project-div" id="rbf">
+				<ProjectEntry githubLink="https://github.com/Ramstric/RBF-Tool-For-PDE">
 					<h2 slot="project-entry-title"><purple>Partial</purple> <pink>Differential</pink> <yellow>Equation</yellow> solver in Python</h2>
 
 					<p slot="project-entry-description">
@@ -20,12 +22,12 @@ import ProjectEntry from '../components/ProjectEntry.astro';
 					</p>
 
 					
-					<img slot="project-entry-images" src="/images/RBF_3.gif" alt="placeholder image"/>
+					<img slot="project-entry-images" src="/images/RBF_3.gif" alt="Heat equation simulation GIF"/>
 				<ProjectEntry/>
 			</div>
 
-			<div class="project-div">
-				<ProjectEntry>
+			<div class="project-div" id="loranet">
+				<ProjectEntry githubLink="https://github.com/Ramstric/LoRaNet">
 					<h2 slot="project-entry-title"><blue>LoRa</blue>Net - <blue>Long Range</blue> Network Device</h2>
 
 					<p slot="project-entry-description">
@@ -34,13 +36,13 @@ import ProjectEntry from '../components/ProjectEntry.astro';
 						A small and portable device that functions as a radio server, useful for field applications such as distant sensors data logging!
 					</p>
 
-					<img slot="project-entry-images" src="/images/LoRa_1.jpg" alt="LoRa device"/>
+					<img slot="project-entry-images" src="/images/LoRa_1.jpg" alt="LoRa device prototype"/>
 
 				<ProjectEntry/>
 			</div>
 
-			<div class="project-div">
-				<ProjectEntry>
+			<div class="project-div" id="dfa">
+				<ProjectEntry githubLink="https://github.com/Ramstric/DFA-Tool-Delfiniti">
 					<h2 slot="project-entry-title"><green>Detrended Fluctuation</green> Analysis Tool</h2>
 
 					<p slot="project-entry-description">
@@ -49,14 +51,16 @@ import ProjectEntry from '../components/ProjectEntry.astro';
 						A small and portable device that functions as a radio server, useful for field applications such as distant sensors data logging!
 					</p>
 
-					<img slot="project-entry-images" src="/images/DFA_1.png" alt="DFA tool"/>
+					<img slot="project-entry-images" src="/images/DFA_1.png" alt="DFA tool program in Windows"/>
 				<ProjectEntry/>
 			</div>
 
 		</div>
 
 		<Socials size="25" styleGap="small" />
-</BaseLayout>
+</StandardLayout>
+
+<!-- ------ Local style ------ -->
 
 <style>
 	.hero {
@@ -68,6 +72,7 @@ import ProjectEntry from '../components/ProjectEntry.astro';
 
 	.project-div {
 		margin-bottom: 15rem;
+		scroll-margin-top: 8vw;
 	}
 
 	img {

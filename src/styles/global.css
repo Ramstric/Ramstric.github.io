@@ -74,6 +74,8 @@ li {
   font-weight: 400;
 }
 
+a {text-decoration: none;}
+
 
 .gradient-font {
   background: -webkit-linear-gradient(

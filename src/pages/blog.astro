@@ -1,9 +1,10 @@
 ---
 import '../styles/global.css'
-import BaseLayout from '../layouts/BaseLayout.astro';
+
+import StandardLayout from '../layouts/StandardLayout.astro';
 ---
 
-<BaseLayout pageTitle="blog">
+<StandardLayout pageTitle="blog">
 		<div class="hero">
 			<h1>blog & more</h1>
 			<p>
@@ -12,7 +13,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		</div>
 
 
-</BaseLayout>
+</StandardLayout>
+
+<!-- ------ Local style ------ -->
 
 <style>
 	.hero {

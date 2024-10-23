@@ -1,13 +1,16 @@
 ---
 import '../styles/global.css'
-import BaseLayout from '../layouts/BaseLayout.astro';
-import WorkExperience from '../components/Work.astro';
-import Education from '../components/Education.astro';
-import Project from '../components/Project.astro';
+
+import StandardLayout from '../layouts/StandardLayout.astro';
+
+import PinnedWork from '../components/index_components/indexPinnedWork.astro';
+import Education from '../components/index_components/indexPinnedEducation.astro';
+import PinnedProject from '../components/index_components/indexPinnedProject.astro';
+
 import Socials from '../components/Socials.astro';
 ---
 
-<BaseLayout pageTitle="home">
+<StandardLayout pageTitle="home">
 		<div class="hero">
 			<h1>Ramón E. Hernández H.</h1>
 			<h2 style="color: var(--secondary-color);">Engr. in Communications and Electronics</h2>
@@ -28,7 +31,7 @@ import Socials from '../components/Socials.astro';
 			</div>
 		
 			<h2 style="margin: 1.5em 0  0 10px">Experience</h2>
-			<WorkExperience position="Research assistant" 
+			<PinnedWork position="Research assistant" 
 			enterprise="Centro de Investigación en Computación" 
 			location="Mexico" 
 			date_start="November 2024" date_end="Present" />
@@ -51,15 +54,15 @@ import Socials from '../components/Socials.astro';
 				</a>
 			</div>
 		
-			<Project name="Partial Differential Equation solver in Python" 
+			<PinnedProject name="Partial Differential Equation solver in Python" id="#rbf"
 			description="Using NumPy & CuPy, accurately approximate solutions for PDEs and design interesting models for simulations!"
 			/>
 
-			<Project name="LoRaNet - Long Range Network Device" 
+			<PinnedProject name="LoRaNet - Long Range Network Device" id="#loranet"
 			description="DIY prototype for a LoRa device using an RP2040 micro controller which hosts a server, allows headless SSH admin usage and much more!"
 			/>
 
-			<Project name="Detrended Fluctuation Analysis Tool" 
+			<PinnedProject name="Detrended Fluctuation Analysis Tool" id="#dfa"
 			description="Small program tool that finds fluctuations within a large time series data, useful for research!"
 			/>
 		</div>
@@ -72,10 +75,12 @@ import Socials from '../components/Socials.astro';
 				If you want to get in touch or maybe collab in a project, feel free to reach out on my social media or even send an email.
 			</p>
 
-			<Socials size="40" styleGap="big" mail/>
+			<Socials size="40" styleGap="big" focusMail/>
 		</div>
 
-</BaseLayout>
+</StandardLayout>
+
+<!-- ------ Local style ------ -->
 
 <style>
 	.hero {
@@ -104,7 +109,6 @@ import Socials from '../components/Socials.astro';
 	}
 
 	a{
-		text-decoration: none;
 		font-size: var(--h3);
 	}
 

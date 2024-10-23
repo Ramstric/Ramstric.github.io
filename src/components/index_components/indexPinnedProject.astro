@@ -1,19 +1,23 @@
 ---
-const { name, description } = Astro.props;
+const { name, description, id } = Astro.props;
 
-import Socials from "./Socials.astro";
+const route = `/projects/${id}`;
 ---
 
-<div class="container-project">
+<a class="container-project" href={route}>
     <h3>{name}</h3>
     <p style="color: var(--secondary-color)">{description}</p>
-</div>
+</a>
+
+<!-- ------ Local style ------ -->
 
 <style>
     .container-project {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+
+        text-decoration: none;
 
         margin-left: 10px;
         margin-top: 2rem;

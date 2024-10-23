@@ -1,5 +1,5 @@
 ---
-const { link } = Astro.props;
+const { githubLink, blogLink } = Astro.props;
 
 import Button from './Button.astro';
 ---
@@ -7,14 +7,14 @@ import Button from './Button.astro';
 <div class="project-entry">
     <div class="project-title">
         <slot name="project-entry-title" />
-        <Button label="github repo" type="invert" iconID="#github-solid" w="150px" h="35px" bgcolor="var(--primary-color)" labelcolor="var(--background)"/>
+        <Button label="github repo" type="invert" iconID="#github-solid" w="120px" h="30px" link={githubLink} bgcolor="var(--primary-color)" labelcolor="var(--background)"/>
     </div>
 
     <div class="project-body">
         <div class="project-description">
             <slot name="project-entry-description" />
 
-            <Button label="go to the blog entry!" type="normal" labelcolor="var(--primary-color)" bgcolor="linear-gradient(-90deg, var(--background), #070707);"/>
+            <Button label="go to the blog entry!" type="normal" h="30px" link={blogLink} labelcolor="var(--primary-color)" bgcolor="linear-gradient(-90deg, var(--background), #070707);"/>
         </div>
         
         <div class="project-image">
@@ -23,6 +23,8 @@ import Button from './Button.astro';
     </div>
     
 </div>
+
+<!-- ------ Local style ------ -->
 
 <style>
     .project-entry {

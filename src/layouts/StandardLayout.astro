@@ -2,7 +2,9 @@
 import { ViewTransitions } from 'astro:transitions';
 
 import '../styles/global.css'
-import Navigation from '../components/Navigation.astro';
+
+import Navbar from '../components/Navbar.astro';
+
 const { pageTitle } = Astro.props;
 ---
 
@@ -19,10 +21,10 @@ const { pageTitle } = Astro.props;
 
     <body>
         <div class="navbar" transition:name="nav">
-            <Navigation />
+            <Navbar />
         </div>
 
-        <div class="main-slot" transition:animate="slide">
+        <div class="main-slot">
             <slot />
         </div>
 
@@ -30,6 +32,8 @@ const { pageTitle } = Astro.props;
 			<p style="color: var(--secondary-color);">© 2024 | Ramón E. Hernández H.</p>
     </body>
 </html>
+
+<!-- ------ Local style ------ -->
 
 <style>
     body {
@@ -50,8 +54,10 @@ const { pageTitle } = Astro.props;
         top: 0;
         left: 0;
         right: 0;
+        /*
         z-index: 1000;
         backdrop-filter: blur(25px);
+        */
     }
 
     .main-slot {

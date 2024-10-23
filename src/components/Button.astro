@@ -1,14 +1,18 @@
 ---
-const { label, bgcolor, labelcolor, type, w, h, iconID} = Astro.props;
+const { label, bgcolor, labelcolor, type, w, h, iconID, link} = Astro.props;
+
+const buttonType = `custom-btn ${type}`;
 ---
 
-<button class={type}>
+<a class={buttonType} href={link} target="_blank">
     {label}
     {iconID && <svg ><use href={iconID} /></svg>}
-</button>
+</a>
+
+<!-- ------ Local style ------ -->
 
 <style define:vars={{ bgcolor: bgcolor, labelcolor: labelcolor, w: w, h: h }}>
-    button {
+    .custom-btn {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -16,7 +20,7 @@ const { label, bgcolor, labelcolor, type, w, h, iconID} = Astro.props;
         color: var(--labelcolor);
         border: none;
         border-radius: 24px;
-        padding: 0.5rem 1rem;
+        padding: 0.25rem 1rem;
         cursor: pointer;
 
         width: var(--w);
@@ -25,7 +29,8 @@ const { label, bgcolor, labelcolor, type, w, h, iconID} = Astro.props;
         transition: all 0.25s ease;
 
         font-size: 1rem;
-        
+
+        text-decoration: none;
     }
 
     svg {
