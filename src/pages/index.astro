@@ -1,179 +1,229 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
 
-import StandardLayout from '../layouts/StandardLayout.astro';
+import StandardLayout from "../layouts/StandardLayout.astro";
 
-import PinnedWork from '../components/index_components/indexPinnedWork.astro';
-import Education from '../components/index_components/indexPinnedEducation.astro';
-import PinnedProject from '../components/index_components/indexPinnedProject.astro';
+import PinnedWork from "../components/index_components/indexPinnedWork.astro";
+import Education from "../components/index_components/indexPinnedEducation.astro";
 
-import Socials from '../components/Socials.astro';
+import PinnedProject from "../components/pinned-project.astro";
+import ResumeShortHand from "../components/resume-short-hand.astro";
 ---
 
 <StandardLayout pageTitle="home">
-		<div class="hero">
-			<h1>Ramón E. Hernández H.</h1>
-			<h2 style="color: var(--secondary-color);">Engr. in Communications and Electronics</h2>
-			<p>
-				<span id="greeting" transition:persist></span> <br/>
-				I'm Ramón, an engineering student from Mexico. I'm passionate about technology, programming, and electronics with high proficiency in software development.
-				<br/><br/>
-				I'm currently studying a degree in Communications and Electronics Engineering at the IPN and I'm working on a research about simulating the human body response to the HIV through partial differential equation modelling of the chemotaxis process.
-			</p>
-		</div>
+  <div class="hero">
+    <div class="title">
+      <h1>Ramón E. Hernández H.</h1>
+      <h2 style="color: var(--secondary-color);">
+        Engr. in Communications and Electronics
+      </h2>
+    </div>
 
-		<div class="resume section">
-			<div class="section-header">
-				<h1>resume</h1>
-				<a href="/resume/" >
-					<span class="link-span" style="color: var(--blue)"> see full resume </span>
-				</a>
-			</div>
-		
-			<h2 style="margin: 1.5em 0  0 10px">Experience</h2>
-			<PinnedWork position="Research assistant" 
-			enterprise="Centro de Investigación en Computación" 
-			location="Mexico" 
-			date_start="November 2024" date_end="Present" />
-			
-			<h2 style="margin: 1.75em 0  0 10px">Education</h2>
-			<Education college="Instituto Politécnico Nacional" 
-			degree="Bachelor in Engr. in Communications and Electronics" 
-			location="Mexico" gpa=3.9 />
+    <p>
+      <span id="greeting" transition:persist></span>
+      <br />
+      I'm Ramón, an engineering student from Mexico. I'm passionate about technology,
+      programming, and electronics with high proficiency in software development.
+      <br /><br />
+      I'm currently studying a degree in Communications and Electronics Engineering
+      at the IPN on the last semester!
+    </p>
+  </div>
 
-			<Education college="Universidad Politécnica de Madrid" 
-			degree="Bachelor in Computer Engineering" 
-			location="Spain" gpa=- />
-		</div>
+  <div class="resume">
+    <div class="section-header">
+      <h1>resume</h1>
+      <a href="/resume/">
+        <span class="link-span" style="color: var(--blue)">
+          see full resume
+        </span>
+      </a>
+    </div>
 
-		<div class="projects section">
-			<div class="section-header">
-				<h1>pinned projects</h1>
-				<a href="/projects/" >
-					<span class="link-span" style="color: var(--blue)"> see all projects </span>
-				</a>
-			</div>
-		
-			<PinnedProject name="Partial Differential Equation solver in Python" id="#rbf"
-			description="Using NumPy & CuPy, accurately approximate solutions for PDEs and design interesting models for simulations!"
-			/>
+    <div class="experience">
+      <h2>Experience</h2>
+      <ResumeShortHand
+        title="Research assistant"
+        country="Mexico"
+        subtitle="Centro de Investigación en Computación"
+        detail="2025"
+        colorSubtitle="var(--red)"
+      />
+    </div>
 
-			<PinnedProject name="LoRaNet - Long Range Network Device" id="#loranet"
-			description="DIY prototype for a LoRa device using an RP2040 micro controller which hosts a server, allows headless SSH admin usage and much more!"
-			/>
+    <div class="education">
+      <h2>Education</h2>
+      <ResumeShortHand
+        title="Bachelor in Engr. in Communications and Electronics"
+        country="Mexico"
+        subtitle="Instituto Politénico Nacional"
+        detail="2025"
+        colorSubtitle="var(--yellow)"
+      />
+      <ResumeShortHand
+        title="Bachelor in Computer Engineering (Study abroad)"
+        country="Spain"
+        subtitle="Universidad Politécnica de Madrid"
+        detail="2025"
+        colorSubtitle="var(--yellow)"
+      />
+    </div>
+  </div>
 
-			<PinnedProject name="Detrended Fluctuation Analysis Tool" id="#dfa"
-			description="Small program tool that finds fluctuations within a large time series data, useful for research!"
-			/>
-		</div>
+  <div class="pinned-projects">
+    <div class="section-header">
+      <h1>pinned projects</h1>
+      <a href="/projects/">
+        <span class="link-span" style="color: var(--blue)">
+          see all projects
+        </span>
+      </a>
+    </div>
 
-		<div class="contact section">
-			
-			<h1>contact me!</h1>
-				
-			<p>
-				If you want to get in touch or maybe collab in a project, feel free to reach out on my social media or even send an email.
-			</p>
+    <div class="projects">
+      <PinnedProject
+        name="Partial Differential Equation solver in Python"
+        id="#rbf"
+        description="Using NumPy & PyTorch, accurately approximate solutions for PDEs and design interesting models for simulations!"
+      />
 
-			<Socials size="40" styleGap="big" focusMail/>
-		</div>
+      <PinnedProject
+        name="Long Range Network Device"
+        id="#lora"
+        description="DIY prototype for a LoRa device using an RP2040 micro controller which hosts a server, allows headless SSH admin usage and much more!"
+      />
 
+      <PinnedProject
+        name="Detrended Fluctuation Analysis Tool"
+        id="#dfa"
+        description="Small program tool that finds fluctuations within a large time series data, useful for research!"
+      />
+    </div>
+  </div>
+
+  <div class="contact">
+    <h1>contact me!</h1>
+
+    <p>
+      If you want to get in touch or maybe collab in a project, feel free to
+      reach out on my social media or even send an email.
+    </p>
+  </div>
 </StandardLayout>
 
 <!-- ------ Local style ------ -->
 
 <style>
-	.hero {
-		text-align: left;
-		width: 90%;
-		max-width: 725px;
-	}
-	.hero h1 {margin: 0 0;}
-	.hero h2 {margin: 0 auto 20px;}
+  /* #region Hero */
+  .hero {
+    gap: 30px;
+  }
 
-	#greeting {
-		font-size: var(--h3);
-		font-weight: 500;
-		color: #FF7C65;
-		font-style: italic;
-		margin: 0;
-	}
+  .hero .title {
+    align-items: flex-start;
+    gap: 5px;
+  }
 
-	.section-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		max-width: 725px;
-	}
+  #greeting {
+    color: #ff7c65;
 
-	.section-header > *{margin: 0;}
+    font-size: var(--h3);
+    font-weight: 500;
+    font-style: italic;
+  }
+  /* #endregion */
 
-	.section {
-		margin-top: 5rem;
-		width: 90%;
-		max-width: 725px;
-	}
+  .resume,
+  .pinned-projects {
+    gap: 40px;
+  }
 
-	a{font-size: var(--h3);}
+  .section-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-	.link-span{position: relative;}
+  .section-header > * {
+    margin: 0;
+  }
 
-	.link-span:after {
-		position: absolute;
-		background: #72bbff36;
-		content: "";
-		bottom: 0;
+  /* #region Link span */
+  .link-span {
+    position: relative;
+  }
 
-		transition: 
-			height .2s cubic-bezier(.175,.885,.32,1.275) .1s,
-			width .1s ease;
-		
-		height: 100%;
-		width: 1%;
-		left: -10px;
-	}
+  .link-span:after {
+    position: absolute;
+    background: #72bbff36;
+    content: "";
+    bottom: 0;
 
-	a:hover .link-span:after{
-		transition:
-			height .1s ease, 
-			width .2s cubic-bezier(.175,.885,.32,1.275) .1s,
+    transition:
+      height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s,
+      width 0.1s ease;
 
-			left .2s cubic-bezier(.175,.885,.32,1.275) .1s,
-			background-color .2s ease .1s;
+    height: 100%;
+    width: 1%;
+    left: -10px;
+  }
 
-		height: 1%;
-		width: 100%;
-		left: 0;
-		background: var(--blue);
-	}
+  a:hover .link-span:after {
+    transition:
+      height 0.1s ease,
+      width 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s,
+      left 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s,
+      background-color 0.2s ease 0.1s;
+
+    height: 1%;
+    width: 100%;
+    left: 0;
+    background: var(--blue);
+  }
+  /* #endregion */
+
+  .experience,
+  .education,
+  .projects {
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0 50px;
+  }
 </style>
 
 <script>
-	const helloList = [ 'Welcome!', 'Vitejte!', 'Velkomst!', 'Welkom!', 'Bienvenue!', 
-	'Willkommen!', 'Benvenuto!', '!Bienvenido!', 'Valkommen!', 'Witaj!', 'ようこそ!'];
+  const helloList = [
+    "Welcome!",
+    "Vitejte!",
+    "Velkomst!",
+    "Welkom!",
+    "Bienvenue!",
+    "Willkommen!",
+    "Benvenuto!",
+    "!Bienvenido!",
+    "Valkommen!",
+    "Witaj!",
+    "ようこそ!",
+  ];
 
-	const random = Math.floor(Math.random() * helloList.length);
+  const random = Math.floor(Math.random() * helloList.length);
 
-	var i = 0;
-	var speed = 50; /* The speed/duration of the effect in milliseconds */
+  var i = 0;
+  var speed = 50; /* The speed/duration of the effect in milliseconds */
 
-	function typeWriter() {
-		if (i < helloList[random].length) {
-			document.getElementById("greeting").innerHTML += helloList[random].charAt(i);
-			i++;
-			setTimeout(typeWriter, speed);
-		}
-	}
+  function typeWriter() {
+    if (i < helloList[random].length) {
+      document.getElementById("greeting").innerHTML +=
+        helloList[random].charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
 
-    document.addEventListener('astro:page-load', () => {
-        typeWriter();
-    });
+  document.addEventListener("astro:page-load", () => {
+    typeWriter();
+  });
 
-	document.addEventListener("astro:after-swap", 
-		() => {
-			document.getElementById("greeting").innerHTML = helloList[random];
-		}
-	)
-
-
+  document.addEventListener("astro:after-swap", () => {
+    document.getElementById("greeting").innerHTML = helloList[random];
+  });
 </script>

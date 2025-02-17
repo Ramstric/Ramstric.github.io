@@ -3,96 +3,39 @@ import '../styles/global.css'
 
 import StandardLayout from '../layouts/StandardLayout.astro';
 
-import Socials from '../components/Socials.astro';
-import ProjectEntry from '../components/ProjectEntry.astro';
+import DetailedProject from '../components/detailed-project.astro';
+
+const projectsArray = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
 ---
 
 <StandardLayout pageTitle="projects">
-		<div class="hero">
+		<div class="projects">
 			
-			<div class="project-div" id="rbf">
-				<ProjectEntry githubLink="https://github.com/Ramstric/RBF-Tool-For-PDE">
-					<h2 slot="project-entry-title"><purple>Partial</purple> <pink>Differential</pink> <yellow>Equation</yellow> solver in Python</h2>
-
-					<p slot="project-entry-description">
-						Using NumPy & CuPy, accurately approximate solutions for PDEs and design interesting models for simulations!
-						<br><br>
-						Check out about Radial Basis Functions and the Collocation method, understand how numerical analysis is applied to approximate solutions for calculus problems and much more!
-					</p>
-
-					
-					<img slot="project-entry-images" src="/images/RBF_3.gif" alt="Heat equation simulation GIF"/>
-				<ProjectEntry/>
-			</div>
-
-			<div class="project-div" id="loranet">
-				<ProjectEntry githubLink="https://github.com/Ramstric/LoRaNet">
-					<h2 slot="project-entry-title"><blue>LoRa</blue>Net - <blue>Long Range</blue> Network Device</h2>
-
-					<p slot="project-entry-description">
-						DIY prototype for a LoRa device using an RP2040 micro controller which hosts a server, allows headless SSH admin usage and much more!
-						<br><br>
-						A small and portable device that functions as a radio server, useful for field applications such as distant sensors data logging!
-					</p>
-
-					<img slot="project-entry-images" src="/images/LoRa_1.jpg" alt="LoRa device prototype"/>
-
-				<ProjectEntry/>
-			</div>
-
-			<div class="project-div" id="dfa">
-				<ProjectEntry githubLink="https://github.com/Ramstric/DFA-Tool-Delfiniti">
-					<h2 slot="project-entry-title"><green>Detrended Fluctuation</green> Analysis Tool</h2>
-
-					<p slot="project-entry-description">
-						Small program tool that finds fluctuations within a large time series data, useful for research!
-						<br><br>
-						A small and portable device that functions as a radio server, useful for field applications such as distant sensors data logging!
-					</p>
-
-					<img slot="project-entry-images" src="/images/DFA_1.png" alt="DFA tool program in Windows"/>
-				<ProjectEntry/>
-			</div>
+			{projectsArray.map( project => 
+						<div class="project-div" id={project.frontmatter.id}>
+							<DetailedProject githubLink={project.frontmatter.github}>
+								<h2 slot="title" set:html={project.frontmatter.title}></h2>
+								<p slot="description" set:html={project.rawContent()}></p>
+								<img slot="image" src={project.frontmatter.images}/>
+							</DetailedProject>
+						</div>
+			)}
 
 		</div>
-
-		<Socials size="25" styleGap="small" />
 </StandardLayout>
 
 <!-- ------ Local style ------ -->
 
 <style>
-	.hero {
-		text-align: left;
-		width: 90%;
-		max-width: 725px;
-	}
-	.hero h1 {margin: 1% 0 5% 0;}
-
 	.project-div {
 		margin-bottom: 15rem;
 		scroll-margin-top: 8vw;
 	}
 
 	img {
+		width: 325px;
 		box-shadow: 0 0 20px 7.5px black;
-		
-		width: 250px;
-		height: 250px;
 	}
-
-	purple {color: #9361E3;}
-	pink {color: #C65B91;}
-	yellow {color: var(--yellow);}
-	blue {color: #49B1FB;}
-	green {color: #86f483;}
-
-	@media screen and (min-width: 500px) {
-		img {
-			width: 350px;
-			height: 350px;
-		}
-    }
 
 </style>
 

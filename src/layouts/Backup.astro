@@ -1,0 +1,76 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+import '../styles/global.css'
+
+import Navbar from '../components/Navbar.astro';
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/contour-integral.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+
+        <ViewTransitions />
+    </head>
+
+    <body>
+        <div class="navbar" transition:name="nav">
+            <Navbar />
+        </div>
+
+        <div class="main-slot">
+            <slot />
+        </div>
+
+		<footer transition:name="footer">
+			<p style="color: var(--secondary-color);">© 2024 | Ramón E. Hernández H.</p>
+    </body>
+</html>
+
+<!-- ------ Local style ------ -->
+
+<style>
+    body {
+        color: var(--primary-color);
+        background-color: var(--background);
+        margin: 0;
+        padding: 0;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .navbar {
+        /*position: fixed;*/
+        top: 0;
+        left: 0;
+        right: 0;
+        /*
+        z-index: 1000;
+        backdrop-filter: blur(25px);
+        */
+    }
+
+    .main-slot {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3.625rem;
+        align-items: center;
+    }
+
+    @media screen and (min-width: 636px) {
+        .main-slot {
+            margin-top: 7.25rem;
+        }
+    }
+
+</style>

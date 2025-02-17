@@ -1,0 +1,46 @@
+---
+const { link } = Astro.props;
+---
+
+<a href={link} target="_blank">
+  github repo
+  <svg><use href="#github-solid"></use></svg>
+</a>
+
+<!-- ------ Local style ------ -->
+
+<style>
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 6px 20px;
+    gap: 5px;
+
+    color: var(--background);
+    background: var(--primary-color);
+
+    border: none;
+    border-radius: 24px;
+
+    transition: all 0.25s ease;
+  }
+
+  a svg {
+    width: 20px;
+    height: 20px;
+
+    transition: all 0.25s ease;
+  }
+
+  a:hover {
+    color: var(--primary-color);
+    background: var(--background);
+    filter: drop-shadow(0 0 0.5rem var(--primary-color));
+  }
+
+  a:hover svg {
+    fill: var(--primary-color);
+  }
+</style>

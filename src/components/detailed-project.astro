@@ -1,0 +1,39 @@
+---
+const { githubLink, blogLink } = Astro.props;
+
+import BtnGithub from "./btn-github.astro";
+import BtnBlog from "./btn-blog.astro";
+---
+
+<div class="detailed-project">
+  <slot name="title" />
+
+  <BtnGithub link={githubLink} />
+
+  <div class="content">
+    <div class="description">
+      <slot name="description" />
+      <BtnBlog link={blogLink} />
+    </div>
+
+    <slot name="image" />
+  </div>
+
+  <!-- ------ Local style ------ -->
+
+  <style>
+    .detailed-project {
+      gap: 25px;
+    }
+
+    .content {
+      flex-direction: row;
+      gap: 50px;
+    }
+
+    .description {
+      gap: 30px;
+      text-align: center;
+    }
+  </style>
+</div>

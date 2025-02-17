@@ -1,5 +1,11 @@
+@font-face {
+  font-family: 'Manrope';
+  font-weight: 200 800;
+  src: url('../fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+}
+
 :root {
-  /* Font Options */
+  /* --------------- Font Options --------------- */
   --h1: clamp(1.5rem, 4vw, 1.85rem);
   --h2: clamp(1.2rem, 3vw, 1.25rem);
   --h3: clamp(1rem, 2vw, 1.125rem);
@@ -11,7 +17,7 @@
   --navbar-desktop: 24px;
   --navbar-mobile: 16px;
 
-  /* Colors */
+  /* ---------------------- Colors ---------------------- */
   --background : #101010;
 
   --primary-color: #e7dcda;
@@ -26,22 +32,34 @@
   --pink: #C65B91;
 }
 
-
-@font-face {
-  font-family: 'Manrope';
-  font-weight: 200 800;
-  src: url('../fonts/Manrope-VariableFont_wght.ttf') format('truetype');
-}
-
+purple {color: var(--purple)}
+pink {color: var(--pink)}
+yellow {color: var(--yellow)}
+blue {color: #49B1FB;}
+red {color: var(--red)}
+green {color: #86f483;}
 
 * {
-  color: var(--primary-color);
   font-family: Manrope, sans-serif;
+  box-sizing: border-box;
+
+  color: var(--primary-color);
+  margin: 0;
 }
 
 html {
   background-color: var(--background);
   font-optical-sizing: auto;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+div, footer, nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 /* ------- Common elements ------- */
@@ -74,7 +92,10 @@ li {
   font-weight: 400;
 }
 
-a {text-decoration: none;}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
 
 
 .gradient-font {
