@@ -27,13 +27,20 @@ import BtnBlog from "./btn-blog.astro";
     }
 
     .content {
-      flex-direction: row;
-      gap: 50px;
+      flex-direction: column-reverse;
+      gap: 25px;
     }
 
     .description {
       gap: 30px;
       text-align: center;
     }
+
+    @media screen and (min-width: 1000px) {
+    .content {
+        flex-direction: row;
+        gap: 50px;
+    }
+  }
   </style>
 </div>

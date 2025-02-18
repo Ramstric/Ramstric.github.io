@@ -6,7 +6,7 @@ const route = `/projects/${id}`;
 
 <a class="pinned-project" href={route}>
     <h3>{name}</h3>
-    <p style="color: var(--secondary-color)">{description}</p>
+    <p>{description}</p>
 </a>
 
 <!-- ------ Local style ------ -->
@@ -17,6 +17,8 @@ const route = `/projects/${id}`;
         flex-direction: column;
         justify-content: center;
 
+        gap: 10px;
+
         width: 100%;
         padding: 15px;
 
@@ -25,6 +27,10 @@ const route = `/projects/${id}`;
         
         background: linear-gradient(170deg, var(--background), var(--background), var(--background), #070707);
         transition: filter 0.2s;
+    }
+
+    .pinned-project p {
+        color: var(--secondary-color);
     }
 
     .pinned-project:hover {filter: drop-shadow(0px 0px 20px #000000);}

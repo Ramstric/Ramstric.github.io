@@ -186,8 +186,15 @@ import ResumeShortHand from "../components/resume-short-hand.astro";
   .projects {
     align-items: flex-start;
     gap: 20px;
-    padding: 0 50px;
   }
+
+  
+  @media screen and (min-width: 636px) {
+    .experience,
+  	.education,
+	.projects {padding: 0 50px;}
+  }
+
 </style>
 
 <script>

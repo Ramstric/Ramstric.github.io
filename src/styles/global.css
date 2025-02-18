@@ -6,11 +6,11 @@
 
 :root {
   /* --------------- Font Options --------------- */
-  --h1: clamp(1.5rem, 4vw, 1.85rem);
-  --h2: clamp(1.2rem, 3vw, 1.25rem);
-  --h3: clamp(1rem, 2vw, 1.125rem);
+  --h1: 26px;
+  --h2: 20px;
+  --h3: 16px;
 
-  --p: clamp(0.8rem, 1.6vw, 1rem);
+  --p: 14px;
   --p-spacing: 0.95px;
   --p-line-h: 175%;
 

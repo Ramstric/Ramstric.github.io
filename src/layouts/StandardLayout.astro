@@ -73,14 +73,13 @@ const { pageTitle } = Astro.props;
 
   /* #region Content */
   .content {
+    margin-top: 2.25rem;
     gap: 100px;
-    padding: 0 100px;
+    padding: 0 clamp(3.125rem, -22.917rem + 46.296vw, 18.75rem); /* Min 50px and Max 300px, with Viewport from 900px to 1440px */
   }
 
   @media screen and (min-width: 636px) {
-    .content {
-      margin-top: 7.25rem;
-    }
+    .content {margin-top: 7.25rem;}
   }
   /* #endregion */
 
