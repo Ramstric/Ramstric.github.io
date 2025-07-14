@@ -1,35 +1,62 @@
 @font-face {
-  font-family: 'Manrope';
-  font-weight: 200 800;
-  src: url('../fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+    font-family: "Manrope";
+    font-weight: 200 800;
+    src: url("/fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "FiraCode";
+    font-weight: 300 700;
+    src: url("/fonts/FiraCode-VariableFont_wght.ttf") format("truetype");
 }
 
 :root {
   /* --------------- Font Options --------------- */
-  --h1: 26px;
+  --h1: 42px;
   --h2: 20px;
   --h3: 16px;
 
   --p: 14px;
   --p-spacing: 0.95px;
-  --p-line-h: 175%;
+  --p-line-h: 23px;
 
-  --navbar-desktop: 24px;
-  --navbar-mobile: 16px;
+  --footer: 12px;
 
   /* ---------------------- Colors ---------------------- */
-  --background : #101010;
+    --black:      #0b0b0b;
+    --dark:       #1c1c1c;
+    --gray:       #3c3c3c;
+    --light-gray: #787676;
+    --light:      #9f9d9d;
+    --white:      #ffece7;
 
-  --primary-color: #e7dcda;
-  --secondary-color: #635C5A;
+    --red:      #eb4964;
+    --crimson:  #f92f51;
+    --brown:    #8b4e3e;
+    --coral:    #e64e4e;
+    --orange:   #ff7c65;
+    --yellow:   #f5b255;
+    --lime:     #b2d235;
+    --green:    #49b258;
+    --teal:     #51d07f;
+    --cyan:     #5ec6cf;
+    --blue:     #598ade;
+    --ocean:    #4244cb;
+    --purple:   #463280;
 
-  --red: #EB4964;
-  --blue: #598ADE;
-  --green: #00FF00;
-  --yellow: #F5B255;
-  --purple: #9361E3;
-  --orange: #FFA259;
-  --pink: #C65B91;
+    --background: #101010;
+    --primary: var(--white);
+    --secondary: var(--gray);
+
+    font-family: Manrope, serif;
+
+    color-scheme: light dark;
+    color: var(--primary);
+    background-color: var(--background);
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 purple {color: var(--purple)}
@@ -40,26 +67,37 @@ red {color: var(--red)}
 green {color: #86f483;}
 
 * {
-  font-family: Manrope, sans-serif;
-  box-sizing: border-box;
-
-  color: var(--primary-color);
-  margin: 0;
+    box-sizing: border-box;
+    
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
 }
 
 html {
-  background-color: var(--background);
-  font-optical-sizing: auto;
-  overflow-x: hidden;
-  overscroll-behavior: none;
+    height: 100%;
+    
+    overflow-x: hidden;
+    overscroll-behavior: none;
+
+    background-color: var(--background);
+
+    font-optical-sizing: auto;
 }
 
-div, footer, nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+body {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+div, main, section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ------- Common elements ------- */
@@ -82,21 +120,21 @@ p{
   font-size: var(--p);
   line-height: var(--p-line-h);
   letter-spacing: var(--p-spacing);
-  font-weight: 300;
-}
-
-li {
-  font-size: var(--p);
-  line-height: var(--p-line-h);
-  letter-spacing: var(--p-spacing);
-  font-weight: 400;
+  font-weight: 200;
 }
 
 a {
+  user-select: none;
   cursor: pointer;
   text-decoration: none;
+  font-size: var(--p);
+  font-weight: 200;
 }
 
+footer * {
+    font-size: var(--footer);
+    font-weight: 200;
+}
 
 .gradient-font {
   background: -webkit-linear-gradient(

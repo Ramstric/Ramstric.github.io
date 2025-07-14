@@ -1,198 +1,80 @@
 ---
 import "../styles/global.css";
 
-import StandardLayout from "../layouts/StandardLayout.astro";
-
-import PinnedWork from "../components/index_components/indexPinnedWork.astro";
-import Education from "../components/index_components/indexPinnedEducation.astro";
-
-import PinnedProject from "../components/pinned-project.astro";
-import ResumeShortHand from "../components/resume-short-hand.astro";
+import Layout from "../layouts/layout.astro";
 ---
 
-<StandardLayout pageTitle="home">
+<Layout pageTitle="home">
   <div class="hero">
     <div class="title">
       <h1>Ramón E. Hernández H.</h1>
-      <h2 style="color: var(--secondary-color);">
-        Engr. in Communications and Electronics
-      </h2>
+      <h3>B. Engr. in Communications and Electronics</h3>
     </div>
-
-    <p>
-      <span id="greeting" transition:persist></span>
-      <br />
-      I'm Ramón, an engineering student from Mexico. I'm passionate about technology,
-      programming, and electronics with high proficiency in software development.
-      <br /><br />
-      I'm currently studying a degree in Communications and Electronics Engineering
-      at the IPN on the last semester!
-    </p>
-  </div>
-
-  <div class="resume">
-    <div class="section-header">
-      <h1>resume</h1>
-      <a href="/resume/">
-        <span class="link-span" style="color: var(--blue)">
-          see full resume
-        </span>
-      </a>
+    <div class="description">
+      <span id="hello"></span>
+      <p>I'm Ramón from Mexico and I'm passionate about technology, programming, and electronics with high proficiency in software development.</p>
     </div>
-
-    <div class="experience">
-      <h2>Experience</h2>
-      <ResumeShortHand
-        title="Research assistant"
-        country="Mexico"
-        subtitle="Centro de Investigación en Computación"
-        detail="2025"
-        colorSubtitle="var(--yellow)"
-      />
-    </div>
-
-    <div class="education">
-      <h2>Education</h2>
-      <ResumeShortHand
-        title="Bachelor in Engr. in Communications and Electronics"
-        country="Mexico"
-        subtitle="Instituto Politénico Nacional"
-        detail="2025"
-        colorSubtitle="#BD335B"
-      />
-      <ResumeShortHand
-        title="Bachelor in Computer Engineering (Study abroad)"
-        country="Spain"
-        subtitle="Universidad Politécnica de Madrid"
-        detail="2025"
-        colorSubtitle="#2464CD"
-      />
+    <div class="menu">
+      <a>projects</a>
+      <a>about me</a>
     </div>
   </div>
-
-  <div class="pinned-projects">
-    <div class="section-header">
-      <h1>pinned projects</h1>
-      <a href="/projects/">
-        <span class="link-span" style="color: var(--blue)">
-          see all projects
-        </span>
-      </a>
-    </div>
-
-    <div class="projects">
-      <PinnedProject
-        name="Partial Differential Equation solver in Python"
-        id="#rbf"
-        description="Using NumPy & PyTorch, accurately approximate solutions for PDEs and design interesting models for simulations!"
-      />
-
-      <PinnedProject
-        name="Long Range Network Device"
-        id="#lora"
-        description="DIY prototype for a LoRa device using an RP2040 micro controller which hosts a server, allows headless SSH admin usage and much more!"
-      />
-
-      <PinnedProject
-        name="Detrended Fluctuation Analysis Tool"
-        id="#dfa"
-        description="Small program tool that finds fluctuations within a large time series data, useful for research!"
-      />
-    </div>
-  </div>
-
-  <div class="contact">
-    <h1>contact me!</h1>
-
-    <p>
-      If you want to get in touch or maybe collab in a project, feel free to
-      reach out on my social media or even send an email.
-    </p>
-  </div>
-</StandardLayout>
+</Layout>
 
 <!-- ------ Local style ------ -->
 
 <style>
-  /* #region Hero */
   .hero {
-    gap: 30px;
+    gap: 10px;
+    /*gap: 50px;*/
   }
 
-  .hero .title {
-    align-items: flex-start;
+  .title {
     gap: 5px;
+
+    & h1 {
+      opacity: 0;
+      font-weight: 200;
+    }
+
+    & h3 {
+      opacity: 0;
+      font-weight: 400;
+      color: var(--gray);
+    }
   }
 
-  #greeting {
-    color: #ff7c65;
-
-    font-size: var(--h3);
-    font-weight: 500;
+  #hello {
+    visibility: hidden;
+    font-size: 25px;
     font-style: italic;
-  }
-  /* #endregion */
-
-  .resume,
-  .pinned-projects {
-    gap: 40px;
+    color: var(--coral);
+    min-height: var(--p-line-h);
   }
 
-  .section-header {
+  .description {
+    width: 400px;
+    text-align: center;
+    & p {
+      opacity: 0;
+    }
+  }
+
+  .menu {
+    opacity: 0;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 100px;
+
+    & a {
+      padding: 0 12px;
+      border-radius: 18px;
+      transition: all 0.2s ease-in-out;
+    }
   }
 
-  .section-header > * {
-    margin: 0;
-  }
-
-  /* #region Link span */
-  .link-span {
-    position: relative;
-  }
-
-  .link-span:after {
-    position: absolute;
-    background: #72bbff36;
-    content: "";
-    bottom: 0;
-
-    transition:
-      height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s,
-      width 0.1s ease;
-
-    height: 100%;
-    width: 1%;
-    left: -10px;
-  }
-
-  a:hover .link-span:after {
-    transition:
-      height 0.1s ease,
-      width 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s,
-      left 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s,
-      background-color 0.2s ease 0.1s;
-
-    height: 1%;
-    width: 100%;
-    left: 0;
-    background: var(--blue);
-  }
-  /* #endregion */
-
-  .experience,
-  .education,
-  .projects {
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  
-  @media screen and (min-width: 636px) {
-    .experience,
-  	.education,
-	.projects {padding: 0 50px;}
+  .menu a:hover {
+    background: var(--white);
+    color: var(--background);
   }
 
 </style>
@@ -212,25 +94,94 @@ import ResumeShortHand from "../components/resume-short-hand.astro";
     "ようこそ!",
   ];
 
+  const helloElement = document.getElementById("hello");
+  if (helloElement) {
+    const randomIndex = Math.floor(Math.random() * helloList.length);
+    helloElement.textContent = helloList[randomIndex];
+  } 
+
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+
+  const tl = gsap.timeline();
+
+   let splitHello = SplitText.create("#hello", { type: "chars" });
+
+  tl.set('.title, .description', { y: 100 })
+    .set('footer', { opacity: 0 })
+    .set("#hello", { visibility: "visible" })
+    .set(splitHello.chars, { opacity: 0, x: 5 });
+
+  tl.to('.title h1, .title h3', {
+    duration: 1,
+    opacity: 1,
+    stagger: 0.25,
+    ease: "power2.out",
+  });
+
+ 
+  tl.to(splitHello.chars, {
+    duration: 0.25,
+    opacity: 1,
+    x: 0,
+    ease: "power2.out",
+    stagger: 0.1
+  });
+
+  tl.to('.title, .description', {
+    delay: 0.75,
+    duration: 0.5,
+    y: 0,
+    ease: "power2.out",
+  });
+  tl.to('#hello', {
+    duration: 0.5,
+    fontSize: "var(--p)",
+    ease: "power2.out",
+  }, "<");
+  tl.to('.description p', {
+    duration: 0.5,
+    opacity: 1,
+    ease: "power2.out",
+  }, "<");
+  tl.to('.hero', {
+    duration: 0.5,
+    gap: "50px",
+    ease: "power2.out",
+  }, "<");
+
+  tl.to('.menu', {
+    duration: 0.5,
+    opacity: 1,
+    ease: "power2.out",
+  });
+
+  tl.to('footer', {
+    duration: 0.5,
+    opacity: 1,
+    ease: "power2.out",
+  });
+  
+  /*
   const random = Math.floor(Math.random() * helloList.length);
 
   var i = 0;
-  var speed = 50; /* The speed/duration of the effect in milliseconds */
+  var speed = 50; The speed/duration of the effect in milliseconds
+
+  const descriptionElement = document.querySelector(".description") as HTMLElement;
+  
+  const helloSpan = document.getElementById("hello") as HTMLSpanElement;
 
   function typeWriter() {
     if (i < helloList[random].length) {
-      document.getElementById("greeting").innerHTML +=
-        helloList[random].charAt(i);
+      helloSpan.textContent = helloList[random].substring(0, i + 1);
       i++;
       setTimeout(typeWriter, speed);
     }
   }
 
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     typeWriter();
   });
-
-  document.addEventListener("astro:after-swap", () => {
-    document.getElementById("greeting").innerHTML = helloList[random];
-  });
+  */
 </script>
