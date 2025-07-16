@@ -15,6 +15,12 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
 
+  <div class="menu">
+    <a class={pageTitle == 'home' ? "active" : ""} href="/" >/home</a>
+    <a class={pageTitle == 'projects' ? "active" : ""} href="/projects" >/projects</a>
+    <a class={pageTitle == 'about' ? "active" : ""} href="/about" >/about me</a>
+  </div>
+
   <body>
     <main>
       <slot />
@@ -27,12 +33,33 @@ const { pageTitle } = Astro.props;
   </body>
 </html>
 
-<!-- ------ Local style ------ -->
-
 <style>
+  .menu {
+    flex-direction: row;
+    padding: 10px 0;
+    gap: 100px;
+
+    & a {
+      padding: 0 12px;
+      border-radius: 18px;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .menu a.active {
+    background: var(--white);
+    color: var(--background);
+  }
+
+  .menu a:hover {
+    background: var(--white);
+    color: var(--background);
+  }
+
   main {
     width: 100%;
     height: 100%;
+    gap: 50px;
   }
 
   footer {
@@ -42,8 +69,8 @@ const { pageTitle } = Astro.props;
 
     height: fit-content;
     
-    gap: 20px;
-    padding: 10px 0;
+    gap: 10px;
+    padding: 8px 0;
 
     & p {
       color: var(--gray);

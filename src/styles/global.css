@@ -17,7 +17,7 @@
   --h3: 16px;
 
   --p: 14px;
-  --p-spacing: 0.95px;
+  --p-spacing: 0.75px;
   --p-line-h: 23px;
 
   --footer: 12px;
@@ -129,6 +129,10 @@ a {
   text-decoration: none;
   font-size: var(--p);
   font-weight: 200;
+}
+
+a:visited {
+  color: inherit;
 }
 
 footer * {

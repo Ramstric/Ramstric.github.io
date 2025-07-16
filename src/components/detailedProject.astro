@@ -5,7 +5,7 @@ import BtnGithub from "./btn-github.astro";
 import BtnBlog from "./btn-blog.astro";
 ---
 
-<div class="detailed-project">
+<div class="detailedProject">
   <slot name="title" />
 
   <BtnGithub link={githubLink} />
@@ -19,10 +19,8 @@ import BtnBlog from "./btn-blog.astro";
     <slot name="image" />
   </div>
 
-  <!-- ------ Local style ------ -->
-
   <style>
-    .detailed-project {
+    .detailedProject {
       text-align: center;
       gap: 25px;
     }
